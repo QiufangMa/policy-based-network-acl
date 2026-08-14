@@ -450,8 +450,7 @@ This section defines a User-Access-Group-ID RADIUS attribute which is designed f
 For other endpoint group types, such as device group or application group, the identifiers are typically pre-provisioned
 on the SDN controller based on an inventory or an application registry.
 
-The User-Access-Group-ID RADIUS attribute is
-defined with a globally unique name. The definition of the attribute
+The definition of the attribute
 follows the guidelines in {{Section 2.7.1 of !RFC6929}}. When
 the User-Access-Group-ID RADIUS attribute is present in the RADIUS
 Access-Accept, the system applies the related access control to the
@@ -485,9 +484,9 @@ The User-Access-Group-ID Attribute is structured as follows:
 
    Length
    : This field indicates the total length, in octets, of all fields of
-   this attribute, including the Type, Length, Extended-Type, and the
-   "Value".
-   : The Length MUST be at most 67 octets. The maximum length is 67 octets to accommodate the maximum group ID of 64 octets plus one octet for Type, one octet for Length, and one octet for Extended-Length.
+   this attribute, including the Type, Length, Extended-Type, and Value.
+   : Length MUST be at least 4, and MUST NOT be more than 67.
+   : The maximum length is 67 octets to accommodate the maximum group ID of 64 octets, plus one octet each for Type, Length, and Extended-Type.
 
    Data Type
    : string ({{Section 3.5 of !RFC8044}})
@@ -495,7 +494,7 @@ The User-Access-Group-ID Attribute is structured as follows:
    Value
    : This field contains the user group ID.
 
-#  RADIUS Attributes
+#  Table of Attributes
 
    {{rad-att}} provides a guide as what type of RADIUS packets
    that may contain User-Access-Group-ID Attribute, and in what
