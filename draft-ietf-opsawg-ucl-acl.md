@@ -190,11 +190,11 @@ dedicated packet fields. Group-Based Policy (GBP), discussed in {{Section 6.2.3 
    User group:
    : A group of end-users who will be assigned the same network access policy. An end-user is defined as a person. Refer to {{sec-ug}} for more details.
 
-   device group:
-   : A collection of enterprise devices that share a common access control policies. Refer to {{sec-dg}} for more details.
+   Device group:
+   : A collection of enterprise devices that share common access control policies. Refer to {{sec-dg}} for more details.
 
    Application group:
-   : A collection of applications that share a common access control policies. An application is a software program used for a specific service. Refer to {{sec-ag}} for more details.
+   : A collection of applications that share common access control policies. An application is a software program used for a specific service. Refer to {{sec-ag}} for more details.
 
    Endpoint group identifier:
    : An identifier used to represent the collective identity of
@@ -305,7 +305,7 @@ Step 3:
 Step 4:
 :  Either the AAA server or the NAS notifies an SDN controller
       of the mapping between the user group ID and related common packet
-      header attributes (e.g., the 5-tuple). The exact details of how such notification is performed are out scope of this specification.
+      header attributes (e.g., the 5-tuple). The exact details of how such notification is performed are out of scope of this specification.
 
 Step 5:
 :  Either group-based or packet header field-based access control policies
@@ -376,7 +376,7 @@ header attributes (e.g., 5-tuple) may be maintained on the SDN controller based 
 
 ### Application Group {#sec-ag}
 
-   An application group is a collection of applications that share a common access control policies.
+   An application group is a collection of applications that share common access control policies.
    A device may run multiple applications, and different policies might need to be
    applied to the applications and device. A single application may need to run on
    multiple devices/VMs/containers, the abstraction of application group eases the
@@ -455,7 +455,7 @@ defined with a globally unique name. The definition of the attribute
 follows the guidelines in {{Section 2.7.1 of !RFC6929}}. When
 the User-Access-Group-ID RADIUS attribute is present in the RADIUS
 Access-Accept, the system applies the related access control to the
-users after the user authenticates.
+user after the user authenticates.
 
 The User-Access-Group-ID Attribute is of type "string" as defined in
 {{Section 3.5 of !RFC8044}}.
@@ -487,7 +487,7 @@ The User-Access-Group-ID Attribute is structured as follows:
    : This field indicates the total length, in octets, of all fields of
    this attribute, including the Type, Length, Extended-Type, and the
    "Value".
-   : The Length MUST be at most 67 octets. The maximum length is 67 octets to accommodate the maximum group ID of 64 octets plus one octet for Type, one octet for Length, and one octet for Extended-Length.
+   : The Length MUST be at most 67 octets. The maximum length is 67 octets to accommodate the maximum group ID of 64 octets plus one octet for Type, one octet for Length, and one octet for Extended-Type.
 
    Data Type
    : string ({{Section 3.5 of !RFC8044}})
@@ -549,7 +549,7 @@ Notation for {{rad-att}}:
    The specification requires that adequate setup is put in place to map a Group ID to packet
    fields, typically managed by a controller. Special care should be taken
    to ensure that such mapping is appropriately enforced when distinct
-   mechanisms (RADIUS, etc.) are supported in network.
+   mechanisms (RADIUS, etc.) are supported in the network.
 
 
 # Security Considerations
@@ -591,7 +591,7 @@ Notation for {{rad-att}}:
      permitted, or deny access that should be permitted.
 
    * /acl:acls/acl:acl/acl:aces/acl:ace/ucl:effective-schedule:
-   : It specifies the secheduling of ACLs. Unauthorized write access to this data node may allow intruders to
+   : It specifies the scheduling of ACLs. Unauthorized write access to this data node may allow intruders to
      alter it. This may lead to service disruption or unavailability. Strict access control must be implemented for write operations on this subtree to ensure that only authorized users can modify it.
 
    Some of the readable data nodes in this YANG module may be considered
@@ -651,7 +651,7 @@ Notation for {{rad-att}}:
 
 --- back
 
-# Examples Usage
+# Usage Examples
 
 ## Configuring the Controller Using Group based ACL {#controller-ucl}
 

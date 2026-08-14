@@ -16,9 +16,9 @@ module ietf-ucl-acl {
   }
 
   organization
-    "IETF OPSWG Working Group";
+    "IETF OPSAWG (Operations and Management Area Working Group)";
   contact
-    "WG Web: <https://datatracker.ietf.org/wg/opsawg/>
+    "WG Web:  https://datatracker.ietf.org/wg/opsawg/
      WG List: OPSAWG <mailto:opsawg@ietf.org>
 
      Editor:   Qiufang Ma
@@ -196,7 +196,7 @@ module ietf-ucl-acl {
       "An ACL that contains a mix of entries that match on fields
        in the Ethernet header, IPv4 header, and endpoint group 
        identities, which can represent the collective identity of a 
-       group of authenticated users, end-devices or applications. 
+       group of authenticated users, end-devices, or applications. 
        Matching on Layer 4 header fields may also exist in the
        ACEs.";
   }  
@@ -210,7 +210,7 @@ module ietf-ucl-acl {
       "An ACL that contains a mix of entries that match on fields
        in the Ethernet header, IPv6 header, and endpoint group 
        identities, which can represent the collective identity of 
-       a group of authenticated users, end-devices or applications. 
+       a group of authenticated users, end-devices, or applications. 
        Matching on Layer 4 header fields may also exist in the
        ACEs.";
   }  
@@ -225,7 +225,7 @@ module ietf-ucl-acl {
       "An ACL that contains a mix of entries that match on fields
        in the Ethernet header, IPv4 header, IPv6 header, and endpoint 
        group identities, which can represent the collective identity 
-       of a group of authenticated users, end-devices or
+       of a group of authenticated users, end-devices, or
        applications. Matching on Layer 4 header fields may also exist 
        in the ACEs.";
   }  
@@ -286,7 +286,9 @@ module ietf-ucl-acl {
             base endpoint-group-type;
           }
           description
-            "Specifies the endpoint group type.";
+            "Specifies the type of the endpoint group (e.g., user,
+             device, or application). When not configured, the group
+             is considered a generic or untyped endpoint group.";
         }
       }
     }
@@ -301,7 +303,9 @@ module ietf-ucl-acl {
       when "derived-from-or-self(/acl:acls/acl:acl/acl:type, "
          + "'ucl:group-acl-type')";
       description
-        "Adds new match types.";
+        "Adds new match criteria based on the group identity
+         associated with the packet's source and/or destination
+         endpoint.";
       leaf source-group-id {
         type group-id-reference;
         description
