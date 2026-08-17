@@ -305,7 +305,13 @@ module ietf-ucl-acl {
       description
         "Adds new match criteria based on the group identity
          associated with the packet's source and/or destination
-         endpoint.";
+         endpoint. 
+         
+         Note this container is only valid when the ACL type is equal
+         to or derived from 'group-acl-type', which depends on the
+         'group' feature. That is, implementations advertising
+         'match-on-group' MUST also support the 'group' feature to
+         ensure the validity of this container.";
       leaf source-group-id {
         type group-id-reference;
         description
