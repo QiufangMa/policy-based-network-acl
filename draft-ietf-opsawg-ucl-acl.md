@@ -494,7 +494,7 @@ The User-Access-Group-ID Attribute is structured as follows:
    Value
    : This field contains the user group ID.
 
-#  Table of Attributes
+#  Table of RADIUS Attributes
 
    {{rad-att}} provides a guide as what type of RADIUS packets
    that may contain User-Access-Group-ID Attribute, and in what
