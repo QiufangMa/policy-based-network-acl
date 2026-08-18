@@ -305,7 +305,7 @@ Step 3:
 Step 4:
 :  Either the AAA server or the NAS notifies an SDN controller
       of the mapping between the user group ID and related common packet
-      header attributes (e.g., the 5-tuple). The exact details of how such notification is performed are out of scope of this specification.
+      header attributes (e.g., the 5-tuple). The exact details of how such notification is performed are out of scope for this specification.
 
 Step 5:
 :  Either group-based or packet header field-based access control policies
