@@ -297,7 +297,7 @@ module ietf-ucl-acl {
   augment "/acl:acls/acl:acl/acl:aces/acl:ace/acl:matches" {
     if-feature "ucl:match-on-group";
     description
-      "Specifies how a source and/or destination endpoint group 
+      "Specifies how a source and/or destination endpoint group
        index can be referenced as the match criteria in the ACEs.";
     container endpoint-group {
       when "derived-from-or-self(/acl:acls/acl:acl/acl:type, "
@@ -305,7 +305,7 @@ module ietf-ucl-acl {
       description
         "Adds new match criteria based on the group identity
          associated with the packet's source and/or destination
-         endpoint. 
+         endpoint.
 
          Note this container is only valid when the ACL type is
          equal to or derived from 'group-acl-type', which depends on
